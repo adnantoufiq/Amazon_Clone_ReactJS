@@ -1,24 +1,32 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import "./App.css";
+import Header from "./Header";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    // class name = BEM naming convention
+    <BrowserRouter>
+      <div className="app">
+        <Routes>
+          <Route path="*" element={<div>404 not found</div>} />
+          <Route
+            path="/"
+            element={
+              <div>
+                <Header />
+                <h2>thi is the home file</h2>
+              </div>
+            }
+          />
+
+          {/* <Route index element={}/> */}
+
+          <Route path="/checkout" element={<h1>This is checkout page</h1>} />
+          <Route path="/login" element={<h1>This is Login page</h1>} />
+        </Routes>
+      </div>
+    </BrowserRouter>
   );
 }
 
