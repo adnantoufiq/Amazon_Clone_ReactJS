@@ -9,6 +9,7 @@ const Header = () => {
         src="https://c8.alamy.com/comp/2CBC2KP/amazon-logo-2CBC2KP.jpg"
         alt="amazon-icon"
       />
+      <div>thi is f</div>
       {/* searchBar */}
       {/* three links */}
       {/* buskate icon */}
