@@ -20,7 +20,7 @@ const Product = ({ id, title, image, rating, price }) => {
       </div>
 
       <img src={image} alt="" />
-      <button>Order Now</button>
+      <button>ORDER NOW</button>
     </div>
   );
 };
