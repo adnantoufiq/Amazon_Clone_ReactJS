@@ -1,6 +1,7 @@
 import React from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "./App.css";
+import CheckOut from "./component/CheckOut";
 import Header from "./component/Header";
 import Home from "./component/Home";
 
@@ -27,7 +28,7 @@ function App() {
             element={
               <div>
                 <Header />
-                <h1>This is checkout page</h1>
+                <CheckOut />
               </div>
             }
           />
