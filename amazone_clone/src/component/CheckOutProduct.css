@@ -26,4 +26,5 @@
 
 .checkOutProduct__rating {
   display: flex;
+  flex-direction: column;
 }
