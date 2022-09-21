@@ -4,6 +4,7 @@ import { auth } from "../firebase";
 import "./Login.css";
 
 const Login = () => {
+  // const navigate = unstable_HistoryRouter();
   const navigate = useNavigate();
   // variable declare for email in react
   const [email, setEmail] = useState("");
@@ -18,7 +19,8 @@ const Login = () => {
       .signInWithEmailAndPassword(email, password)
       .then((auth) => {
         // you loged in successfully and retrun to home page
-        navigate.push("/");
+        // navigate.push("/");
+        navigate("/");
       })
       .catch((err) => alert(err));
   };
@@ -27,10 +29,11 @@ const Login = () => {
   const register = (event) => {
     event.preventDefault(); // stop the page refresh
     auth
-      .createWithEmailAndPassword(email, password)
+      .createUserWithEmailAndPassword(email, password)
       .then((auth) => {
         // sucessfully register users
-        navigate.push("/");
+        // navigate.push("/");
+        navigate("/");
       })
       .catch((err) => alert(err));
   };

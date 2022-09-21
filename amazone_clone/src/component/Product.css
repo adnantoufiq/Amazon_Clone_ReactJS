@@ -31,4 +31,6 @@
 .product > button {
   background-color: #f0c14b;
   border: 1px solid;
+  border-radius: 10px;
+  height: 30px;
 }

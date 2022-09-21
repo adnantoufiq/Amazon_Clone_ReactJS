@@ -2,11 +2,19 @@ import SearchIcon from "@material-ui/icons/Search";
 import ShoppingBasketIcon from "@material-ui/icons/ShoppingBasket";
 import React from "react";
 import { Link } from "react-router-dom";
+import { auth } from "../firebase";
 import "./Header.css";
 import { useStateValue } from "./StateProvider";
 
 const Header = () => {
-  const [{ basket }] = useStateValue();
+  const [{ basket, user }] = useStateValue();
+
+  const login = () => {
+    if (user) {
+      auth.signOut();
+    }
+  };
+
   return (
     <div className="header">
       {/* logo on the left -> img */}
@@ -27,21 +35,25 @@ const Header = () => {
       {/* three links */}
       <div className="header__nav">
         {/* 1st links */}
-        <Link to="/login" className="header__navLink">
-          <div className="header__navOption">
-            <span className="header__navOptionLineOne">Hello Toufiq</span>
-            <span className="header__navOptionLineTwo">Sign In</span>
+        <Link to={!user && "/login"} className="header__navLink">
+          <div onClick={login} className="header__navOption">
+            <span className="header__navOptionLineOne">
+              Hello {!user ? "Guest" : user.email}
+            </span>
+            <span className="header__navOptionLineTwo">
+              {user ? "Sign Out" : "Sign In"}
+            </span>
           </div>
         </Link>
         {/* 2nd links */}
-        <Link to="/login" className="header__navLink">
+        <Link to="/returnsOrders" className="header__navLink">
           <div className="header__navOption">
             <span className="header__navOptionLineOne">Returns </span>
             <span className="header__navOptionLineTwo">& Orders</span>
           </div>
         </Link>
         {/* 3rd links */}
-        <Link to="/login" className="header__navLink">
+        <Link to="/yourPrime" className="header__navLink">
           <div className="header__navOption">
             <span className="header__navOptionLineOne">Your</span>
             <span className="header__navOptionLineTwo">Prime</span>
