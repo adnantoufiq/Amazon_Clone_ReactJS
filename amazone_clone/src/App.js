@@ -14,7 +14,7 @@ function App() {
 
   // this useEffect code run only once for given conditions
   useEffect(() => {
-    auth.onAuthStateChanged((authUser) => {
+    const unSubscribe = auth.onAuthStateChanged((authUser) => {
       if (authUser) {
         //the user is loged in
         dispatch({
@@ -28,6 +28,11 @@ function App() {
           user: null,
         });
       }
+
+      // if anythings goes down or any user problems it then all the authincations process will start again
+      return () => {
+        unSubscribe();
+      };
     });
   }, []);
 
