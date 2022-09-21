@@ -5,12 +5,13 @@ import CheckOut from "./component/CheckOut";
 import Header from "./component/Header";
 import Home from "./component/Home";
 import Login from "./component/Login";
+import ReturnsOrders from "./component/ReturnsOrders";
 import { useStateValue } from "./component/StateProvider";
 import { auth } from "./firebase";
 
 function App() {
   // pull reducer data layer
-  const [{ basket }, dispatch] = useStateValue();
+  const [{ user }, dispatch] = useStateValue();
 
   // this useEffect code run only once for given conditions
   useEffect(() => {
@@ -36,6 +37,8 @@ function App() {
     });
   }, []);
 
+  console.log("user is >>", user);
+
   return (
     // class name = BEM naming convention
     <BrowserRouter>
@@ -48,6 +51,7 @@ function App() {
               <div>
                 <Header />
                 <Home />
+                {/* <ReturnsOrders /> */}
               </div>
             }
           />
@@ -68,6 +72,15 @@ function App() {
               <div>
                 {/* <Header /> */}
                 <Login />
+              </div>
+            }
+          />
+          <Route
+            path="/returnsOrders"
+            element={
+              <div>
+                <Header />
+                <ReturnsOrders />
               </div>
             }
           />
