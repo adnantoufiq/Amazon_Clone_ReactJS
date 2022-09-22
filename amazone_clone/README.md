@@ -2,10 +2,11 @@
 
 https://amazone-react.netlify.app/
 
+![Screenshot 2022-09-22 095511](https://user-images.githubusercontent.com/78754445/191656190-550b38a2-ebe2-4243-9efb-73711c9ed7ee.png)
 
 
-# Getting Started with Create React App![Screenshot 2022-09-22 095511](https://user-images.githubusercontent.com/78754445/191656075-e5acca86-d793-4e08-8945-07e28f2a7e0a.png)
 
+# Getting Started with Create React App!
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
